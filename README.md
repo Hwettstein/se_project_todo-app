@@ -1,17 +1,17 @@
 # Simple Todo App
 
-Give a brief description of the project here. Feel free to give it a different name.
+This task app is designed for daily planning of important tasks which can easily be checked off, or removed once it suits the user.
 
 ## Functionality
 
-Give a more detailed explanation of the project and its functionality.
+This app uses simple button designs and an uncluttered layout backed by JavaScript and form validation to keep things simple and reliable for day-to-day use.
 
 ## Technology
 
-Give a description of the technologies and techniques used. Pictures, GIFs, or screenshots that detail the project features are recommended.
+This code is structured using OOP to keep it loading quickly, structure it efficiently and to make easier to modify in the future with updates and changes.
 
 ## Deployment
 
 This project is deployed on GitHub Pages:
 
-- ADD LINK HERE
+https://hwettstein.github.io/se_project_todo-app/
