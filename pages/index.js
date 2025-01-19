@@ -15,17 +15,6 @@ const todosList = document.querySelector(".todos__list");
 
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
-const renderTodo = (item) => {
-  const todo = generateTodo(item);
-  todosList.append(todo);
-};
-
-const section = new Section({
-  items: initialTodos,
-  renderer: renderTodo,
-  containerSelector: ".todos__list",
-});
-
 function handleCheck(completed) {
   todoCounter.updateCompleted(completed);
 }
@@ -49,7 +38,7 @@ const addTodoPopup = new PopupWithForm({
     const values = { name, date, id };
 
     const todo = generateTodo(values);
-    todosList.append(todo);
+    section.addItem(todo);
     newTodoFormValidator.resetValidation();
     addTodoPopup.close();
     todoCounter.updateTotal(true);
@@ -64,6 +53,17 @@ const generateTodo = (data) => {
   return todoElement;
 };
 
+const section = new Section({
+  items: initialTodos,
+  renderer: (item) => {
+    const todo = generateTodo(item);
+    section.addItem(todo);
+  },
+  containerSelector: ".todos__list",
+});
+
+section.renderItems();
+
 function handleEscapeClose(evt) {
   if (evt.key === "Escape") {
   }
@@ -72,8 +72,6 @@ function handleEscapeClose(evt) {
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
 });
-
-initialTodos.forEach(renderTodo);
 
 const newTodoFormValidator = new FormValidator(validationConfig, addTodoForm);
 newTodoFormValidator.enableValidation();
